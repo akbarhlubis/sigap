@@ -118,6 +118,7 @@ To ensure maximum safety, technical compliance, and reliability, **SIGAP** refer
 ### 🚑 Emergency & Medical Guidelines
 - **First Aid Guidelines**: Based on the [American Heart Association (AHA) CPR & ECC Guidelines](https://eccguidelines.heart.org/) and the [International Federation of Red Cross (IFRC) First Aid Reference](https://www.referencecentrefirstaid.org/).
 - **Kemenkes RI**: Localized emergency procedures aligned with guidelines from the [Kementerian Kesehatan Republik Indonesia (Kemenkes)](https://sehatnegeriku.kemkes.go.id/).
+- **Palang Merah Indonesia (PMI)**: Standardized training pathways and competencies based on the [PMI Emergency Response Certification Area](https://www.pmi.or.id/training-certification/certification-area/emergency-response).
 
 ### 📶 Bluetooth Mesh Research & Offline P2P
 For our offline mesh roadmap, we studied the open-source BLE mesh implementation by **PermissionlessTech**:
@@ -133,5 +134,7 @@ For our offline mesh roadmap, we studied the open-source BLE mesh implementation
 
 ## ❤️ Acknowledgments & Appreciation
 - **PermissionlessTech (BitChat Contributors)**: Deep appreciation to the developers of BitChat for open-sourcing their dual-transport mesh architecture. Their native CoreBluetooth and Nordic BLE implementations provided critical insights for our offline mesh engineering path.
+- **Palang Merah Indonesia (PMI)**: Sincere thanks for their public education resources, community training modules (MTDB, SATGANA), and national competency certification standards.
 - **Medical Professionals & First Responders**: Sincere gratitude to all doctors, nurses, and emergency dispatchers who dedicate their lives to emergency response.
+
 

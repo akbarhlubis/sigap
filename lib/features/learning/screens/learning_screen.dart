@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import '../../../core/constants/colors.dart';
 import 'package:sigap/l10n/app_localizations.dart';
 
@@ -10,6 +11,9 @@ class LearningTopic {
   final IconData icon;
   final List<String> contentId;
   final List<String> contentEn;
+  final String? actionUrl;
+  final String? actionLabelId;
+  final String? actionLabelEn;
 
   LearningTopic({
     required this.titleId,
@@ -19,6 +23,9 @@ class LearningTopic {
     required this.icon,
     required this.contentId,
     required this.contentEn,
+    this.actionUrl,
+    this.actionLabelId,
+    this.actionLabelEn,
   });
 }
 
@@ -113,7 +120,58 @@ class _LearningScreenState extends State<LearningScreen> {
         "• Use Safety Gates: Install barriers at the top and bottom of stairs to prevent falls."
       ],
     ),
+    LearningTopic(
+      titleId: "Pelatihan & Sertifikasi Tanggap Darurat (PMI)",
+      titleEn: "Official Emergency Response Training & Certification (PMI)",
+      categoryId: "Sertifikasi",
+      categoryEn: "Certification",
+      icon: Icons.workspace_premium_rounded,
+      contentId: [
+        "1. Kategori Pelatihan PMI: Palang Merah Indonesia menyelenggarakan pelatihan Tanggap Darurat (Emergency Response), Manajemen Bencana, Pertolongan Pertama (First Aid), dan unit khusus relawan (SATGANA).",
+        "2. Manajemen Tanggap Darurat Bencana (MTDB): Pelatihan khusus yang membekali peserta dengan kemampuan kepemimpinan lapangan, alur koordinasi darurat, manajemen stres pasca-trauma, serta simulasi penanganan bencana.",
+        "3. Sertifikasi LSP PMI (Lisensi BNSP): Uji kompetensi profesi penolong pertama berbasis standar kompetensi kerja nasional (SKKNI). Menjamin sertifikasi yang sah dan diakui secara nasional.",
+        "4. Cara Belajar & Praktik: Menggunakan metode interaktif dengan simulasi penanganan korban massal, evakuasi darurat, dan penggunaan alat keselamatan.",
+        "5. Cara Mendaftar: Hubungi kantor cabang PMI Kota/Kabupaten terdekat di daerah Anda untuk info jadwal Diklat, atau buka portal resmi sertifikasi PMI di bawah ini."
+      ],
+      contentEn: [
+        "1. PMI Course Categories: Palang Merah Indonesia offers training for Emergency Response, Disaster Management, First Aid, and specialized volunteer squads (SATGANA).",
+        "2. Emergency Response Management (MTDB): Focuses on leadership, chain of command, post-trauma stress management, stakeholder analysis, and full-scale field simulation.",
+        "3. Professional Certification (LSP PMI): National competency certifications licensed by BNSP, validating your skills as an official first responder under Indonesian law.",
+        "4. Interactive Methods: Immersive training sessions involving mass casualty simulation, triage, proper body mechanics, and hands-on drills.",
+        "5. How to Register: Visit or contact your local PMI regency/city branch for training schedules, or access the official registration portal below."
+      ],
+      actionUrl: "https://www.pmi.or.id/training-certification/certification-area/emergency-response",
+      actionLabelId: "Daftar Pelatihan Tanggap Darurat",
+      actionLabelEn: "Register Emergency Response Training",
+    ),
   ];
+
+  Future<void> _launchURL(BuildContext context, String urlString) async {
+    final Uri url = Uri.parse(urlString);
+    try {
+      if (await canLaunchUrl(url)) {
+        await launchUrl(url, mode: LaunchMode.externalApplication);
+      } else {
+        if (context.mounted) {
+          ScaffoldMessenger.of(context).showSnackBar(
+            SnackBar(
+              content: Text('Tidak dapat membuka link: $urlString'),
+              backgroundColor: AppColors.severityCritical,
+            ),
+          );
+        }
+      }
+    } catch (_) {
+      if (context.mounted) {
+        ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(
+            content: Text('Gagal membuka link.'),
+            backgroundColor: AppColors.severityCritical,
+          ),
+        );
+      }
+    }
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -179,19 +237,45 @@ class _LearningScreenState extends State<LearningScreen> {
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: content.map((line) {
-                      return Padding(
-                        padding: const EdgeInsets.only(bottom: 8.0),
-                        child: Text(
-                          line,
-                          style: TextStyle(
-                            fontSize: 14,
-                            height: 1.5,
-                            color: isDark ? AppColors.textDarkPrimary : AppColors.textLightPrimary,
+                    children: [
+                      ...content.map((line) {
+                        return Padding(
+                          padding: const EdgeInsets.only(bottom: 8.0),
+                          child: Text(
+                            line,
+                            style: TextStyle(
+                              fontSize: 14,
+                              height: 1.5,
+                              color: isDark ? AppColors.textDarkPrimary : AppColors.textLightPrimary,
+                            ),
+                          ),
+                        );
+                      }),
+                      if (topic.actionUrl != null) ...[
+                        const SizedBox(height: 12),
+                        SizedBox(
+                          width: double.infinity,
+                          child: FilledButton.icon(
+                            onPressed: () => _launchURL(context, topic.actionUrl!),
+                            icon: const Icon(Icons.open_in_new_rounded, size: 18),
+                            label: Text(
+                              locale == 'en'
+                                  ? (topic.actionLabelEn ?? 'Learn More')
+                                  : (topic.actionLabelId ?? 'Pelajari Selengkapnya'),
+                              style: const TextStyle(fontWeight: FontWeight.bold),
+                            ),
+                            style: FilledButton.styleFrom(
+                              backgroundColor: AppColors.tealPrimary,
+                              foregroundColor: Colors.white,
+                              padding: const EdgeInsets.symmetric(vertical: 12),
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(12),
+                              ),
+                            ),
                           ),
                         ),
-                      );
-                    }).toList(),
+                      ],
+                    ],
                   ),
                 ],
               ),
