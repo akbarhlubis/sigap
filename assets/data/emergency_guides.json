@@ -1,0 +1,470 @@
+{
+  "categories": [
+    {
+      "id": "choking",
+      "title": { "id": "Tersedak", "en": "Choking" },
+      "description": { "id": "Saluran napas tersumbat benda asing.", "en": "Airway blocked by a foreign object." },
+      "icon": "choking",
+      "severity": "critical",
+      "startNodeId": "choking_conscious",
+      "nodes": {
+        "choking_conscious": {
+          "id": "choking_conscious",
+          "question": { "id": "Apakah korban sadar?", "en": "Is the victim conscious?" },
+          "explanation": { "id": "Periksa apakah korban merespon gerakan atau suara Anda.", "en": "Check if the victim responds to movements or your voice." },
+          "illustration": "choking_conscious",
+          "options": [
+            { "text": { "id": "Ya, Sadar", "en": "Yes, Conscious" }, "nextNodeId": "choking_cough_check" },
+            { "text": { "id": "Tidak Sadar", "en": "No, Unconscious" }, "nextNodeId": "choking_unconscious_action" }
+          ]
+        },
+        "choking_cough_check": {
+          "id": "choking_cough_check",
+          "question": { "id": "Apakah korban masih bisa batuk atau berbicara?", "en": "Can the victim still cough or speak?" },
+          "explanation": { "id": "Tanyakan 'Apakah Anda tersedak?' Jika korban bisa menjawab atau batuk keras, penyumbatan bersifat parsial.", "en": "Ask 'Are you choking?' If they can answer or cough loudly, the blockage is partial." },
+          "illustration": "choking_cough",
+          "options": [
+            { "text": { "id": "Bisa Batuk / Bicara", "en": "Can Cough / Speak" }, "nextNodeId": "choking_partial_action" },
+            { "text": { "id": "Tidak Bisa Sama Sekali", "en": "Cannot Speak / Breathe" }, "nextNodeId": "choking_total_action" }
+          ]
+        },
+        "choking_partial_action": {
+          "id": "choking_partial_action",
+          "question": { "id": "Dorong korban untuk terus batuk", "en": "Encourage the victim to keep coughing" },
+          "explanation": { "id": "Pantau kondisinya secara ketat. Jangan memukul punggung jika mereka bisa batuk karena dapat mendorong benda lebih dalam.", "en": "Monitor closely. Do not give back blows if they can cough, as this may push the object deeper." },
+          "illustration": "choking_encourage_cough",
+          "options": []
+        },
+        "choking_total_action": {
+          "id": "choking_total_action",
+          "question": { "id": "Berikan 5 tepukan punggung & 5 hentakan perut (Heimlich)", "en": "Give 5 back blows & 5 abdominal thrusts (Heimlich)" },
+          "explanation": { "id": "Condongkan korban ke depan. Tepuk punggung di antara belikat. Jika gagal, lingkarkan tangan di perut korban dari belakang, tekan kuat ke dalam dan ke atas.", "en": "Lean victim forward. Strike back between shoulder blades. If failing, wrap arms around abdomen, pull sharply inward and upward." },
+          "illustration": "heimlich_maneuver",
+          "options": [
+            { "text": { "id": "Penyumbatan Teratasi", "en": "Blockage Cleared" }, "nextNodeId": "choking_cleared" },
+            { "text": { "id": "Korban Pingsan", "en": "Victim Faints" }, "nextNodeId": "choking_unconscious_action" }
+          ]
+        },
+        "choking_unconscious_action": {
+          "id": "choking_unconscious_action",
+          "question": { "id": "Panggil 112 dan lakukan Resusitasi Jantung Paru (RJP)", "en": "Call 112 and start CPR immediately" },
+          "explanation": { "id": "Baringkan korban. Sebelum memberi napas buatan, periksa apakah benda asing terlihat di mulut dan ambil jika mudah dijangkau. Lakukan RJP.", "en": "Lay victim down. Before rescue breaths, look in the mouth and remove the foreign object if visible. Perform CPR." },
+          "illustration": "cpr_instruction",
+          "options": []
+        },
+        "choking_cleared": {
+          "id": "choking_cleared",
+          "question": { "id": "Penyumbatan teratasi. Istirahatkan korban.", "en": "Blockage cleared. Rest the victim." },
+          "explanation": { "id": "Pastikan korban bernapas normal. Bawa ke dokter jika dilakukan hentakan perut untuk memeriksa cedera internal.", "en": "Ensure normal breathing. Seek medical advice if abdominal thrusts were done to check for internal injuries." },
+          "illustration": "recovery_position",
+          "options": []
+        }
+      }
+    },
+    {
+      "id": "fainting",
+      "title": { "id": "Pingsan", "en": "Fainting" },
+      "description": { "id": "Kehilangan kesadaran sementara akibat kurangnya aliran darah ke otak.", "en": "Temporary loss of consciousness due to reduced blood flow to the brain." },
+      "icon": "fainting",
+      "severity": "moderate",
+      "startNodeId": "fainting_breathing_check",
+      "nodes": {
+        "fainting_breathing_check": {
+          "id": "fainting_breathing_check",
+          "question": { "id": "Apakah korban masih bernapas?", "en": "Is the victim breathing?" },
+          "explanation": { "id": "Periksa pergerakan dada dan rasakan hembusan napas selama 10 detik.", "en": "Look for chest rise and feel for breath for 10 seconds." },
+          "illustration": "breathing_check",
+          "options": [
+            { "text": { "id": "Ya, Bernapas", "en": "Yes, Breathing" }, "nextNodeId": "fainting_breathing_action" },
+            { "text": { "id": "Tidak Bernapas", "en": "No, Not Breathing" }, "nextNodeId": "fainting_no_breathing_action" }
+          ]
+        },
+        "fainting_breathing_action": {
+          "id": "fainting_breathing_action",
+          "question": { "id": "Baringkan, tinggikan kaki 30 cm, longgarkan pakaian", "en": "Lay flat, elevate legs 30 cm, loosen clothes" },
+          "explanation": { "id": "Tinggikan kaki untuk mengalirkan darah kembali ke otak. Beri udara segar. Jangan beri makan atau minum sampai sadar sepenuhnya.", "en": "Elevate feet to restore blood flow to the brain. Provide fresh air. Do not give food or drink until fully conscious." },
+          "illustration": "fainting_elevate_legs",
+          "options": [
+            { "text": { "id": "Korban Sadar Kembali", "en": "Victim Regains Consciousness" }, "nextNodeId": "fainting_recovered" },
+            { "text": { "id": "Tetap Pingsan > 5 Menit", "en": "Stays Unconscious > 5 Mins" }, "nextNodeId": "fainting_prolonged" }
+          ]
+        },
+        "fainting_no_breathing_action": {
+          "id": "fainting_no_breathing_action",
+          "question": { "id": "Hubungi 112 & Mulai RJP", "en": "Call 112 & Start CPR" },
+          "explanation": { "id": "Korban henti napas. Panggil ambulans segera dan gunakan bantuan Asisten RJP di aplikasi ini untuk memandu kompresi dada.", "en": "Victim has stopped breathing. Call ambulance immediately and use the CPR Assistant in this app to guide compressions." },
+          "illustration": "cpr_instruction",
+          "options": []
+        },
+        "fainting_recovered": {
+          "id": "fainting_recovered",
+          "question": { "id": "Korban sadar. Dudukkan perlahan.", "en": "Victim is conscious. Sit up slowly." },
+          "explanation": { "id": "Biarkan korban berbaring atau duduk santai selama 10-15 menit sebelum berdiri agar tidak pingsan lagi.", "en": "Let victim rest lying down or sitting for 10-15 minutes before standing to prevent recurrence." },
+          "illustration": "sit_down_rest",
+          "options": []
+        },
+        "fainting_prolonged": {
+          "id": "fainting_prolonged",
+          "question": { "id": "Hubungi 112 & Baringkan Miring (Recovery Position)", "en": "Call 112 & Put in Recovery Position" },
+          "explanation": { "id": "Pingsan yang lama bisa menandakan kondisi medis serius. Posisikan korban miring agar jalan napas tetap aman dari muntahan.", "en": "Prolonged fainting may indicate a serious medical issue. Turn them onto their side to keep the airway clear of vomit." },
+          "illustration": "recovery_position",
+          "options": []
+        }
+      }
+    },
+    {
+      "id": "bleeding",
+      "title": { "id": "Pendarahan", "en": "Bleeding" },
+      "description": { "id": "Keluarnya darah dari pembuluh darah akibat luka.", "en": "Loss of blood from blood vessels due to injury." },
+      "icon": "bleeding",
+      "severity": "critical",
+      "startNodeId": "bleeding_severity_check",
+      "nodes": {
+        "bleeding_severity_check": {
+          "id": "bleeding_severity_check",
+          "question": { "id": "Apakah pendarahan parah / menyembur?", "en": "Is the bleeding severe or spurting?" },
+          "explanation": { "id": "Pendarahan parah/arteri ditandai dengan semburan darah merah terang yang deras dan sulit berhenti.", "en": "Severe arterial bleeding is marked by rapid spurts of bright red blood that is hard to stop." },
+          "illustration": "bleeding_check",
+          "options": [
+            { "text": { "id": "Ya, Parah", "en": "Yes, Severe" }, "nextNodeId": "bleeding_severe_action" },
+            { "text": { "id": "Tidak, Ringan", "en": "No, Minor" }, "nextNodeId": "bleeding_minor_action" }
+          ]
+        },
+        "bleeding_severe_action": {
+          "id": "bleeding_severe_action",
+          "question": { "id": "Tekan langsung luka dengan kain bersih & tinggikan", "en": "Apply direct pressure with clean cloth & elevate" },
+          "explanation": { "id": "Tekan kuat pada luka secara terus-menerus. Jika di kaki/tangan, angkat melebihi tinggi jantung korban. Hubungi 112.", "en": "Press firmly on the wound without stopping. If on a limb, lift it above heart level. Call 112." },
+          "illustration": "direct_pressure",
+          "options": [
+            { "text": { "id": "Darah Masih Menembus Kain", "en": "Blood Still Seeping Through" }, "nextNodeId": "bleeding_tourniquet_check" },
+            { "text": { "id": "Pendarahan Berhenti", "en": "Bleeding Stops" }, "nextNodeId": "bleeding_stops_action" }
+          ]
+        },
+        "bleeding_tourniquet_check": {
+          "id": "bleeding_tourniquet_check",
+          "question": { "id": "Apakah luka berada di lengan atau kaki?", "en": "Is the wound located on an arm or leg?" },
+          "explanation": { "id": "Jika pendarahan parah pada ekstremitas tidak berhenti dengan tekanan langsung, tourniquet mungkin diperlukan untuk menyelamatkan nyawa.", "en": "If severe limb bleeding cannot be stopped by direct pressure, a tourniquet may be needed to save life." },
+          "illustration": "limb_check",
+          "options": [
+            { "text": { "id": "Ya, Lengan / Kaki", "en": "Yes, Arm / Leg" }, "nextNodeId": "bleeding_apply_tourniquet" },
+            { "text": { "id": "Tidak (Badan/Kepala)", "en": "No (Torso/Head)" }, "nextNodeId": "bleeding_body_pressure" }
+          ]
+        },
+        "bleeding_apply_tourniquet": {
+          "id": "bleeding_apply_tourniquet",
+          "question": { "id": "Gunakan Tourniquet 5cm di atas luka", "en": "Apply Tourniquet 5cm above the wound" },
+          "explanation": { "id": "Ikat kencang menggunakan sabuk/kain tebal dan batang pemutar. Putar hingga pendarahan berhenti. Catat waktu pemasangan tourniquet.", "en": "Bind tightly using a belt/thick cloth and windlass rod. Twist until bleeding stops. Record the application time." },
+          "illustration": "tourniquet_guide",
+          "options": []
+        },
+        "bleeding_body_pressure": {
+          "id": "bleeding_body_pressure",
+          "question": { "id": "Tambah kain penekan & pertahankan tekanan kuat", "en": "Add more padding & maintain firm pressure" },
+          "explanation": { "id": "Jangan angkat kain pertama. Tambahkan kain bersih di atasnya dan tekan lebih kuat. Tunggu bantuan ambulans.", "en": "Do not remove the first cloth. Add more clean layers on top and apply harder pressure. Wait for the ambulance." },
+          "illustration": "double_pressure",
+          "options": []
+        },
+        "bleeding_minor_action": {
+          "id": "bleeding_minor_action",
+          "question": { "id": "Bersihkan luka dengan air mengalir & perban", "en": "Clean wound with running water & bandage" },
+          "explanation": { "id": "Cuci luka selama beberapa menit untuk membuang kotoran. Keringkan, oleskan antiseptik, dan tutup dengan plester atau perban bersih.", "en": "Wash the wound for a few minutes to remove dirt. Dry it, apply antiseptic, and cover with a plaster or clean bandage." },
+          "illustration": "clean_wound",
+          "options": []
+        },
+        "bleeding_stops_action": {
+          "id": "bleeding_stops_action",
+          "question": { "id": "Pasang perban penekan & pantau tanda syok", "en": "Apply pressure bandage & monitor for shock" },
+          "explanation": { "id": "Ikat kain penekan dengan perban elastis. Periksa denyut nadi ujung jari. Jaga tubuh korban tetap hangat.", "en": "Tie the padding down with an elastic bandage. Check pulse at the fingertip. Keep the victim warm." },
+          "illustration": "bandage_wrap",
+          "options": []
+        }
+      }
+    },
+    {
+      "id": "burns",
+      "title": { "id": "Luka Bakar", "en": "Burns" },
+      "description": { "id": "Kerusakan kulit akibat panas, bahan kimia, atau radiasi.", "en": "Damage to skin caused by heat, chemicals, or radiation." },
+      "icon": "burns",
+      "severity": "moderate",
+      "startNodeId": "burns_type_check",
+      "nodes": {
+        "burns_type_check": {
+          "id": "burns_type_check",
+          "question": { "id": "Apakah disebabkan bahan kimia atau listrik?", "en": "Is it caused by chemicals or electricity?" },
+          "explanation": { "id": "Luka bakar kimia atau listrik membutuhkan tindakan keselamatan khusus sebelum merawat luka.", "en": "Chemical or electrical burns require special safety actions before treating the wound." },
+          "illustration": "burn_cause",
+          "options": [
+            { "text": { "id": "Ya (Kimia / Listrik)", "en": "Yes (Chemical / Electric)" }, "nextNodeId": "burns_chemical_electric_action" },
+            { "text": { "id": "Tidak (Api / Air Panas)", "en": "No (Fire / Hot Liquid)" }, "nextNodeId": "burns_thermal_severity_check" }
+          ]
+        },
+        "burns_chemical_electric_action": {
+          "id": "burns_chemical_electric_action",
+          "question": { "id": "Aliri air 20 menit (kimia) atau periksa jalan napas (listrik)", "en": "Flush with water for 20 mins (chemical) or check airway (electric)" },
+          "explanation": { "id": "Bahan kimia: Guyur terus dengan air mengalir. Listrik: Pastikan listrik mati, lalu periksa pernapasan. Hubungi 112.", "en": "Chemicals: Flush continuously with running water. Electricity: Ensure power is off, then check breathing. Call 112." },
+          "illustration": "flush_water",
+          "options": []
+        },
+        "burns_thermal_severity_check": {
+          "id": "burns_thermal_severity_check",
+          "question": { "id": "Apakah luka bakar parah (melepuh besar, kulit hitam/putih)?", "en": "Is the burn severe (large blisters, black/white skin)?" },
+          "explanation": { "id": "Luka bakar parah merusak lapisan kulit dalam, wajah, tangan, atau area luas (> lebar telapak tangan korban).", "en": "Severe burns damage deep skin layers, affect the face/hands, or cover a large area (> width of the victim's palm)." },
+          "illustration": "burn_severity",
+          "options": [
+            { "text": { "id": "Ya, Parah", "en": "Yes, Severe" }, "nextNodeId": "burns_severe_action" },
+            { "text": { "id": "Tidak, Ringan", "en": "No, Minor" }, "nextNodeId": "burns_minor_action" }
+          ]
+        },
+        "burns_severe_action": {
+          "id": "burns_severe_action",
+          "question": { "id": "Dinginkan dengan air mengalir, tutup longgar & ke RS", "en": "Cool with running water, cover loosely & go to hospital" },
+          "explanation": { "id": "Dinginkan dengan air mengalir suhu ruang selama 10 menit. Jangan gunakan es. Tutup longgar dengan plastik pembungkus bersih (plastic wrap) atau kain steril. Hubungi 112.", "en": "Cool with room-temp running water for 10 mins. Do not use ice. Cover loosely with clean plastic wrap or sterile cloth. Call 112." },
+          "illustration": "cool_cover_burn",
+          "options": []
+        },
+        "burns_minor_action": {
+          "id": "burns_minor_action",
+          "question": { "id": "Aliri air dingin 10-15 menit & beri pelembab", "en": "Flush cool water 10-15 mins & apply moisturizer" },
+          "explanation": { "id": "Dinginkan area luka bakar dengan air mengalir bersih. Setelah dingin, oleskan gel lidah buaya atau pelembab. Jangan pecahkan gelembung lepuhan.", "en": "Cool the burn under clean running water. Once cooled, apply aloe vera gel or moisturizer. Do not pop any blisters." },
+          "illustration": "minor_burn_care",
+          "options": []
+        }
+      }
+    },
+    {
+      "id": "electric_shock",
+      "title": { "id": "Tersengat Listrik", "en": "Electric Shock" },
+      "description": { "id": "Aliran listrik melintasi tubuh yang dapat menghentikan jantung.", "en": "Electric current passing through the body, which can stop the heart." },
+      "icon": "electric",
+      "severity": "critical",
+      "startNodeId": "electric_contact_check",
+      "nodes": {
+        "electric_contact_check": {
+          "id": "electric_contact_check",
+          "question": { "id": "Apakah korban masih menempel dengan sumber listrik?", "en": "Is the victim still in contact with the electric source?" },
+          "explanation": { "id": "PERINGATAN: Jangan sentuh korban jika mereka masih menempel dengan aliran listrik hidup, atau Anda akan ikut tersengat.", "en": "WARNING: Do not touch the victim if they are still in contact with live current, or you will also be shocked." },
+          "illustration": "electric_shock_check",
+          "options": [
+            { "text": { "id": "Ya, Masih Menempel", "en": "Yes, Still in Contact" }, "nextNodeId": "electric_contact_action" },
+            { "text": { "id": "Tidak / Sudah Lepas", "en": "No / Disconnected" }, "nextNodeId": "electric_breathing_check" }
+          ]
+        },
+        "electric_contact_action": {
+          "id": "electric_contact_action",
+          "question": { "id": "Matikan sekring listrik / dorong dengan kayu kering", "en": "Shut off main power / push away with dry wood" },
+          "explanation": { "id": "Matikan pemutus arus (MCB) segera. Jika tidak bisa, gunakan benda non-logam kering (seperti gagang sapu kayu) untuk menjauhkan sumber listrik.", "en": "Shut off the circuit breaker (MCB) immediately. If impossible, use a dry, non-metal object (like a wooden broom handle) to push the wire away." },
+          "illustration": "power_off_safety",
+          "options": [
+            { "text": { "id": "Listrik Sudah Mati / Lepas", "en": "Power Off / Separated" }, "nextNodeId": "electric_breathing_check" }
+          ]
+        },
+        "electric_breathing_check": {
+          "id": "electric_breathing_check",
+          "question": { "id": "Apakah korban masih bernapas?", "en": "Is the victim breathing?" },
+          "explanation": { "id": "Periksa napas dengan mendekatkan telinga Anda ke hidung korban sambil melihat gerakan dadanya.", "en": "Check breathing by placing your ear near their nose and watching chest movements." },
+          "illustration": "breathing_check",
+          "options": [
+            { "text": { "id": "Ya, Bernapas", "en": "Yes, Breathing" }, "nextNodeId": "electric_recovery_position" },
+            { "text": { "id": "Tidak Bernapas", "en": "No, Not Breathing" }, "nextNodeId": "electric_cpr_action" }
+          ]
+        },
+        "electric_recovery_position": {
+          "id": "electric_recovery_position",
+          "question": { "id": "Baringkan miring & rawat luka bakar listrik", "en": "Lay in recovery position & treat electrical burns" },
+          "explanation": { "id": "Miringkan korban agar jalan napas aman. Periksa luka bakar di tempat masuk dan keluarnya arus listrik. Bawa ke RS segera.", "en": "Put them in recovery position. Check for burns where current entered and exited the body. Go to hospital immediately." },
+          "illustration": "recovery_position",
+          "options": []
+        },
+        "electric_cpr_action": {
+          "id": "electric_cpr_action",
+          "question": { "id": "Hubungi 112 & lakukan RJP segera", "en": "Call 112 & start CPR immediately" },
+          "explanation": { "id": "Sengatan listrik sering menghentikan detak jantung. Berikan kompresi dada yang konsisten dengan bantuan Asisten RJP di aplikasi ini.", "en": "Electric shocks often cause cardiac arrest. Administer continuous chest compressions using the CPR Assistant." },
+          "illustration": "cpr_instruction",
+          "options": []
+        }
+      }
+    },
+    {
+      "id": "seizures",
+      "title": { "id": "Kejang", "en": "Seizures" },
+      "description": { "id": "Gangguan aktivitas listrik otak yang memicu kejang otot hebat.", "en": "Disruption of electrical brain activity causing severe muscle spasms." },
+      "icon": "seizures",
+      "severity": "moderate",
+      "startNodeId": "seizures_active_check",
+      "nodes": {
+        "seizures_active_check": {
+          "id": "seizures_active_check",
+          "question": { "id": "Apakah korban sedang kejang saat ini?", "en": "Is the victim currently having a seizure?" },
+          "explanation": { "id": "Korban kejang biasanya kaku, gemetar hebat seluruh tubuh, mata melotot, dan tidak merespon.", "en": "A seizing victim is usually rigid, shaking violently, with eyes rolled back, and unresponsive." },
+          "illustration": "seizure_active",
+          "options": [
+            { "text": { "id": "Ya, Sedang Kejang", "en": "Yes, Seizing Now" }, "nextNodeId": "seizures_active_action" },
+            { "text": { "id": "Kejang Sudah Berhenti", "en": "Seizure Has Stopped" }, "nextNodeId": "seizures_post_action" }
+          ]
+        },
+        "seizures_active_action": {
+          "id": "seizures_active_action",
+          "question": { "id": "Lindungi kepala, singkirkan benda tajam. JANGAN tahan korban!", "en": "Protect head, clear area. DO NOT restrain!" },
+          "explanation": { "id": "Letakkan jaket/bantal di bawah kepala. JANGAN masukkan benda apa pun (termasuk sendok/jari) ke dalam mulut. JANGAN menahan gerakan kejang korban.", "en": "Place a folded jacket/pillow under their head. DO NOT put anything in their mouth. DO NOT hold the victim down." },
+          "illustration": "seizure_care",
+          "options": [
+            { "text": { "id": "Kejang Berhenti", "en": "Seizure Stops" }, "nextNodeId": "seizures_post_action" },
+            { "text": { "id": "Kejang > 5 Menit", "en": "Seizure > 5 Mins" }, "nextNodeId": "seizures_call_emergency" }
+          ]
+        },
+        "seizures_post_action": {
+          "id": "seizures_post_action",
+          "question": { "id": "Baringkan miring (Recovery Position) & pantau napas", "en": "Turn onto side (Recovery Position) & monitor breathing" },
+          "explanation": { "id": "Setelah kejang, korban akan lemas dan bingung. Baringkan miring agar air liur/muntah keluar dari mulut dan tidak menyumbat jalan napas.", "en": "After a seizure, the victim will be exhausted and confused. Lay them on their side to prevent choking on saliva/vomit." },
+          "illustration": "recovery_position",
+          "options": []
+        },
+        "seizures_call_emergency": {
+          "id": "seizures_call_emergency",
+          "question": { "id": "Hubungi 112 segera", "en": "Call 112 immediately" },
+          "explanation": { "id": "Kejang berulang atau kejang yang berlangsung lebih dari 5 menit merupakan kondisi darurat medis yang mengancam jiwa.", "en": "Repeated seizures or a single seizure lasting more than 5 minutes is a life-threatening medical emergency." },
+          "illustration": "call_ambulance",
+          "options": []
+        }
+      }
+    },
+    {
+      "id": "heart_attack",
+      "title": { "id": "Serangan Jantung", "en": "Heart Attack" },
+      "description": { "id": "Penyumbatan mendadak aliran darah ke otot jantung.", "en": "Sudden blockage of blood flow to the heart muscle." },
+      "icon": "heart",
+      "severity": "critical",
+      "startNodeId": "heart_conscious_check",
+      "nodes": {
+        "heart_conscious_check": {
+          "id": "heart_conscious_check",
+          "question": { "id": "Apakah korban sadar?", "en": "Is the victim conscious?" },
+          "explanation": { "id": "Serangan jantung ditandai nyeri dada parah seperti ditekan, menjalar ke lengan kiri atau rahang, sesak napas, dan keringat dingin.", "en": "A heart attack causes severe crushing chest pain, radiating to the left arm or jaw, shortness of breath, and cold sweat." },
+          "illustration": "heart_attack_check",
+          "options": [
+            { "text": { "id": "Ya, Sadar", "en": "Yes, Conscious" }, "nextNodeId": "heart_conscious_action" },
+            { "text": { "id": "Tidak Sadar", "en": "No, Unconscious" }, "nextNodeId": "heart_unconscious_action" }
+          ]
+        },
+        "heart_conscious_action": {
+          "id": "heart_conscious_action",
+          "question": { "id": "Dudukkan setengah berbaring, longgarkan pakaian, beri Aspirin", "en": "Sit in a semi-reclined position, loosen clothes, give Aspirin" },
+          "explanation": { "id": "Dudukkan korban di lantai dengan punggung bersandar agar beban jantung berkurang. Longgarkan kancing kerah. Jika ada, berikan tablet Aspirin (300mg) untuk dikunyah. Hubungi 112.", "en": "Position victim on the floor leaning against a wall to reduce heart strain. Loosen tight collars. Have them chew one Aspirin (300mg) if available. Call 112." },
+          "illustration": "heart_sitting_position",
+          "options": [
+            { "text": { "id": "Korban Hilang Kesadaran", "en": "Victim Loses Consciousness" }, "nextNodeId": "heart_unconscious_action" }
+          ]
+        },
+        "heart_unconscious_action": {
+          "id": "heart_unconscious_action",
+          "question": { "id": "Hubungi 112 segera & mulai RJP", "en": "Call 112 immediately & start CPR" },
+          "explanation": { "id": "Jika korban pingsan dan tidak bernapas normal, segera mulai kompresi dada sedalam 5-6 cm secara cepat dan konstan.", "en": "If the victim collapses and stops breathing normally, immediately start fast and deep chest compressions (5-6 cm depth)." },
+          "illustration": "cpr_instruction",
+          "options": []
+        }
+      }
+    },
+    {
+      "id": "stroke",
+      "title": { "id": "Stroke", "en": "Stroke" },
+      "description": { "id": "Penyumbatan atau pecahnya pembuluh darah di otak.", "en": "Blockage or rupture of blood vessels in the brain." },
+      "icon": "stroke",
+      "severity": "critical",
+      "startNodeId": "stroke_fast_check",
+      "nodes": {
+        "stroke_fast_check": {
+          "id": "stroke_fast_check",
+          "question": { "id": "Lakukan tes FAST: Wajah, Lengan, atau Bicara tidak normal?", "en": "Perform FAST test: Face, Arms, or Speech abnormal?" },
+          "explanation": { "id": "F (Face): Minta tersenyum, apakah separuh wajah terkulai? A (Arm): Minta angkat kedua tangan, apakah satu tangan lunglai? S (Speech): Minta bicara, apakah pelo/cadel?", "en": "F (Face): Ask to smile, does one side droop? A (Arm): Ask to lift both arms, does one drift down? S (Speech): Ask to speak, is their speech slurred?" },
+          "illustration": "stroke_fast_test",
+          "options": [
+            { "text": { "id": "Ya (Salah Satu Positif)", "en": "Yes (Any Sign Present)" }, "nextNodeId": "stroke_fast_positive" },
+            { "text": { "id": "Tidak Ada Gejala Tersebut", "en": "No (None of These)" }, "nextNodeId": "stroke_other_symptoms" }
+          ]
+        },
+        "stroke_fast_positive": {
+          "id": "stroke_fast_positive",
+          "question": { "id": "Catat waktu gejala mulai & Hubungi 112", "en": "Record time symptoms started & Call 112" },
+          "explanation": { "id": "T (Time): Waktu sangat penting dalam penanganan stroke untuk mencegah kerusakan otak permanen. Baringkan korban dengan kepala sedikit ditinggikan (30 derajat). Jangan beri makanan/minuman.", "en": "T (Time): Time is critical to prevent permanent brain damage. Lay them down with head slightly elevated (30 degrees). Do not give food or drink." },
+          "illustration": "stroke_care",
+          "options": []
+        },
+        "stroke_other_symptoms": {
+          "id": "stroke_other_symptoms",
+          "question": { "id": "Periksa sakit kepala hebat, mati rasa sebelah tubuh, atau rabun mendadak", "en": "Check for sudden severe headache, numbness on one side, or double vision" },
+          "explanation": { "id": "Jika gejala-gejala ini muncul mendadak secara tiba-tiba tanpa sebab jelas, segeralah hubungi layanan darurat 112 atau bawa ke rumah sakit.", "en": "If these symptoms appear suddenly without clear cause, immediately call 112 or transport them to the hospital." },
+          "illustration": "hospital_go",
+          "options": []
+        }
+      }
+    },
+    {
+      "id": "animal_bites",
+      "title": { "id": "Gigitan Hewan", "en": "Animal Bites" },
+      "description": { "id": "Cedera akibat gigi hewan yang berisiko infeksi atau racun.", "en": "Injuries from animal teeth, risking infection or poisoning." },
+      "icon": "bites",
+      "severity": "moderate",
+      "startNodeId": "bite_type_check",
+      "nodes": {
+        "bite_type_check": {
+          "id": "bite_type_check",
+          "question": { "id": "Apakah dicurigai berbisa (ular/laba-laba) atau rabies (anjing liar/kelelawar)?", "en": "Is it suspected venomous (snake/spider) or rabies (wild dog/bat)?" },
+          "explanation": { "id": "Gigitan ular berbisa menimbulkan nyeri hebat, bengkak cepat, dan kebiruan. Gigitan anjing liar berisiko menularkan rabies.", "en": "Venomous snakebites cause severe pain, rapid swelling, and bruising. Stray dog bites carry a rabies transmission risk." },
+          "illustration": "animal_bite_check",
+          "options": [
+            { "text": { "id": "Ya (Berbisa / Rabies)", "en": "Yes (Venomous / Rabies)" }, "nextNodeId": "bite_venomous_action" },
+            { "text": { "id": "Tidak (Peliharaan Sehat / Ringan)", "en": "No (Healthy Pet / Minor)" }, "nextNodeId": "bite_minor_action" }
+          ]
+        },
+        "bite_venomous_action": {
+          "id": "bite_venomous_action",
+          "question": { "id": "Imobilisasi anggota tubuh, cuci bersih & segera ke UGD", "en": "Immobilize the limb, wash & go to ER immediately" },
+          "explanation": { "id": "Untuk gigitan ular: Jangan ikat kencang (torniket) kecuali atas instruksi dokter, dan JANGAN hisap racunnya. Pasang bidai agar sendi tidak bergerak untuk memperlambat penyebaran racun. Hubungi 112.", "en": "For snakebites: Do not tie a tourniquet unless instructed, and DO NOT suck out venom. Apply a splint to keep the limb still and slow venom spread. Call 112." },
+          "illustration": "bite_immobilize",
+          "options": []
+        },
+        "bite_minor_action": {
+          "id": "bite_minor_action",
+          "question": { "id": "Cuci sabun 15 menit, antiseptik, perban", "en": "Wash with soap for 15 mins, antiseptic, bandage" },
+          "explanation": { "id": "Cuci luka gigitan dengan air bersih mengalir dan sabun selama minimal 15 menit untuk membilas air liur hewan. Oleskan antiseptik dan tutup dengan kasa steril.", "en": "Wash the bite wound under running water with soap for at least 15 minutes to clear saliva. Apply antiseptic and cover with sterile gauze." },
+          "illustration": "clean_wound",
+          "options": []
+        }
+      }
+    },
+    {
+      "id": "fractures",
+      "title": { "id": "Patah Tulang", "en": "Fractures" },
+      "description": { "id": "Retak atau patahnya struktur tulang akibat benturan.", "en": "Cracking or breaking of bone structure due to impact." },
+      "icon": "fracture",
+      "severity": "moderate",
+      "startNodeId": "fracture_open_check",
+      "nodes": {
+        "fracture_open_check": {
+          "id": "fracture_open_check",
+          "question": { "id": "Apakah tulang menembus kulit (terbuka) / berdarah hebat?", "en": "Is the bone protruding (open fracture) or bleeding heavily?" },
+          "explanation": { "id": "Patah tulang terbuka berisiko tinggi infeksi tulang berat. Pendarahan hebat di dekat tulang patah harus segera dihentikan.", "en": "An open fracture carries a high risk of bone infection. Heavy bleeding near the broken bone must be controlled." },
+          "illustration": "fracture_check",
+          "options": [
+            { "text": { "id": "Ya (Patah Terbuka / Darah)", "en": "Yes (Open Fracture / Blood)" }, "nextNodeId": "fracture_open_action" },
+            { "text": { "id": "Tidak (Patah Tertutup)", "en": "No (Closed Fracture)" }, "nextNodeId": "fracture_closed_action" }
+          ]
+        },
+        "fracture_open_action": {
+          "id": "fracture_open_action",
+          "question": { "id": "Tekan sekitar luka (JANGAN tekan tulang!), tutup kasa & hubungi 112", "en": "Apply pressure around (NOT on bone!), cover gauze & call 112" },
+          "explanation": { "id": "Gunakan perban bersih. Tekan kuat area sekitar tulang yang mencuat untuk menghentikan pendarahan. JANGAN dorong tulang kembali masuk. Tutup longgar dengan kain steril.", "en": "Use clean dressings. Press firmly on the area around the protruding bone to stop bleeding. DO NOT push the bone back in. Cover loosely with sterile cloth." },
+          "illustration": "open_fracture_care",
+          "options": []
+        },
+        "fracture_closed_action": {
+          "id": "fracture_closed_action",
+          "question": { "id": "Imobilisasi dengan bidai & kompres es", "en": "Immobilize with a splint & apply cold compress" },
+          "explanation": { "id": "Sangga bagian atas dan bawah sendi yang patah dengan papan/majalah gulung sebagai bidai. Ikat longgar agar peredaran darah lancar. Tempelkan es yang dibungkus handuk.", "en": "Support joints above and below the fracture using boards/rolled magazines as splints. Tie loosely to preserve blood flow. Apply towel-wrapped ice." },
+          "illustration": "splint_apply",
+          "options": []
+        }
+      }
+    }
+  ]
+}
