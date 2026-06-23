@@ -132,4 +132,21 @@ class AppLocalizationsId extends AppLocalizations {
 
   @override
   String get tapToCall => 'Ketuk untuk melakukan panggilan langsung';
+
+  @override
+  String get medicalReferences => 'Referensi Medis';
+
+  @override
+  String get medicalReferencesSubtitle =>
+      'Sumber pedoman pertolongan pertama resmi';
+
+  @override
+  String get ahaReference =>
+      'AHA (American Heart Association) - Pedoman RJP & Kegawatdaruratan Jantung.';
+
+  @override
+  String get kemenkesReference => 'Kemenkes RI - Pedoman P3K Nasional.';
+
+  @override
+  String get pmiReference => 'PMI & IFRC - Panduan Luka & Fraktur.';
 }

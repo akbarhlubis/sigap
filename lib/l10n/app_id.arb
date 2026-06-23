@@ -40,5 +40,10 @@
   "learningTitle": "Koleksi Pembelajaran",
   "noGuideFound": "Panduan tidak ditemukan",
   "version": "Versi",
-  "tapToCall": "Ketuk untuk melakukan panggilan langsung"
+  "tapToCall": "Ketuk untuk melakukan panggilan langsung",
+  "medicalReferences": "Referensi Medis",
+  "medicalReferencesSubtitle": "Sumber pedoman pertolongan pertama resmi",
+  "ahaReference": "AHA (American Heart Association) - Pedoman RJP & Kegawatdaruratan Jantung.",
+  "kemenkesReference": "Kemenkes RI - Pedoman P3K Nasional.",
+  "pmiReference": "PMI & IFRC - Panduan Luka & Fraktur."
 }

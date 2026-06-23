@@ -133,4 +133,22 @@ class AppLocalizationsEn extends AppLocalizations {
 
   @override
   String get tapToCall => 'Tap to make a direct emergency call';
+
+  @override
+  String get medicalReferences => 'Medical References';
+
+  @override
+  String get medicalReferencesSubtitle =>
+      'Official first-aid guideline sources';
+
+  @override
+  String get ahaReference =>
+      'AHA (American Heart Association) - CPR & Cardiac Guidelines.';
+
+  @override
+  String get kemenkesReference =>
+      'Kemenkes RI - National First Aid Guidelines.';
+
+  @override
+  String get pmiReference => 'PMI & IFRC - Wound & Fracture Guidelines.';
 }

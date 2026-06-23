@@ -343,6 +343,36 @@ abstract class AppLocalizations {
   /// In id, this message translates to:
   /// **'Ketuk untuk melakukan panggilan langsung'**
   String get tapToCall;
+
+  /// No description provided for @medicalReferences.
+  ///
+  /// In id, this message translates to:
+  /// **'Referensi Medis'**
+  String get medicalReferences;
+
+  /// No description provided for @medicalReferencesSubtitle.
+  ///
+  /// In id, this message translates to:
+  /// **'Sumber pedoman pertolongan pertama resmi'**
+  String get medicalReferencesSubtitle;
+
+  /// No description provided for @ahaReference.
+  ///
+  /// In id, this message translates to:
+  /// **'AHA (American Heart Association) - Pedoman RJP & Kegawatdaruratan Jantung.'**
+  String get ahaReference;
+
+  /// No description provided for @kemenkesReference.
+  ///
+  /// In id, this message translates to:
+  /// **'Kemenkes RI - Pedoman P3K Nasional.'**
+  String get kemenkesReference;
+
+  /// No description provided for @pmiReference.
+  ///
+  /// In id, this message translates to:
+  /// **'PMI & IFRC - Panduan Luka & Fraktur.'**
+  String get pmiReference;
 }
 
 class _AppLocalizationsDelegate

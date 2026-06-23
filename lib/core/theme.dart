@@ -6,11 +6,10 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme.light(
+      colorScheme: const ColorScheme.light(
         primary: AppColors.tealPrimary,
         secondary: AppColors.blueAccent,
         surface: AppColors.cardLight,
-        background: AppColors.bgLight,
         error: AppColors.severityCritical,
       ),
       scaffoldBackgroundColor: AppColors.bgLight,
@@ -34,7 +33,7 @@ class AppTheme {
       cardTheme: CardThemeData(
         color: AppColors.cardLight,
         elevation: 2,
-        shadowColor: Colors.black.withOpacity(0.05),
+        shadowColor: Colors.black.withValues(alpha: 0.05),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.circular(16),
           side: const BorderSide(color: AppColors.borderLight),
@@ -76,11 +75,10 @@ class AppTheme {
   static ThemeData get darkTheme {
     return ThemeData(
       useMaterial3: true,
-      colorScheme: ColorScheme.dark(
+      colorScheme: const ColorScheme.dark(
         primary: AppColors.tealPrimary,
         secondary: AppColors.blueAccent,
         surface: AppColors.cardDark,
-        background: AppColors.bgDark,
         error: AppColors.severityCritical,
       ),
       scaffoldBackgroundColor: AppColors.bgDark,

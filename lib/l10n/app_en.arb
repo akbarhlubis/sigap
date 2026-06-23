@@ -40,5 +40,10 @@
   "learningTitle": "Learning Resource Collection",
   "noGuideFound": "Guide not found",
   "version": "Version",
-  "tapToCall": "Tap to make a direct emergency call"
+  "tapToCall": "Tap to make a direct emergency call",
+  "medicalReferences": "Medical References",
+  "medicalReferencesSubtitle": "Official first-aid guideline sources",
+  "ahaReference": "AHA (American Heart Association) - CPR & Cardiac Guidelines.",
+  "kemenkesReference": "Kemenkes RI - National First Aid Guidelines.",
+  "pmiReference": "PMI & IFRC - Wound & Fracture Guidelines."
 }

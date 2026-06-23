@@ -12,7 +12,7 @@ class ProfileScreen extends StatefulWidget {
 }
 
 class _ProfileScreenState extends State<ProfileScreen> {
-  String _databaseSize = "62 KB";
+  final String _databaseSize = "62 KB";
 
   Future<void> _resetDisclaimerStatus() async {
     final prefs = await SharedPreferences.getInstance();
@@ -59,7 +59,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     width: 80,
                     height: 80,
                     decoration: BoxDecoration(
-                      color: AppColors.tealPrimary.withOpacity(0.15),
+                      color: AppColors.tealPrimary.withValues(alpha: 0.15),
                       shape: BoxShape.circle,
                     ),
                     child: const Icon(
@@ -79,7 +79,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                   ),
                   const SizedBox(height: 4),
                   Text(
-                    l10n.version + " 1.0.0 (MVP)",
+                    "${l10n.version} 1.0.0 (MVP)",
                     style: TextStyle(
                       fontSize: 14,
                       color: isDark ? AppColors.textDarkSecondary : AppColors.textLightSecondary,
@@ -149,7 +149,7 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     sigapState.changeThemeMode(value ? ThemeMode.dark : ThemeMode.light);
                   }
                 },
-                activeColor: AppColors.tealPrimary,
+                activeThumbColor: AppColors.tealPrimary,
               ),
             ),
             const SizedBox(height: 24),
@@ -206,6 +206,56 @@ class _ProfileScreenState extends State<ProfileScreen> {
             ),
             const SizedBox(height: 24),
 
+            // Medical References Section
+            Text(
+              l10n.medicalReferences,
+              style: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: AppColors.tealPrimary,
+                letterSpacing: 0.5,
+              ),
+            ),
+            const SizedBox(height: 8),
+
+            Card(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Text(
+                      l10n.medicalReferencesSubtitle,
+                      style: const TextStyle(
+                        fontWeight: FontWeight.bold,
+                        fontSize: 14,
+                        color: AppColors.tealPrimary,
+                      ),
+                    ),
+                    const SizedBox(height: 12),
+                    _buildReferenceItem(
+                      icon: Icons.favorite_rounded,
+                      text: l10n.ahaReference,
+                      isDark: isDark,
+                    ),
+                    const Divider(height: 16),
+                    _buildReferenceItem(
+                      icon: Icons.health_and_safety_rounded,
+                      text: l10n.kemenkesReference,
+                      isDark: isDark,
+                    ),
+                    const Divider(height: 16),
+                    _buildReferenceItem(
+                      icon: Icons.medical_services_rounded,
+                      text: l10n.pmiReference,
+                      isDark: isDark,
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+
             // Developer / Debug Settings Header
             Text(
               "SISTEM & DIAGNOSTIK",
@@ -234,6 +284,29 @@ class _ProfileScreenState extends State<ProfileScreen> {
           ],
         ),
       ),
+    );
+  }
+
+  Widget _buildReferenceItem({
+    required IconData icon,
+    required String text,
+    required bool isDark,
+  }) {
+    return Row(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Icon(icon, size: 18, color: AppColors.tealPrimary),
+        const SizedBox(width: 12),
+        Expanded(
+          child: Text(
+            text,
+            style: TextStyle(
+              fontSize: 13,
+              color: isDark ? AppColors.textDarkPrimary : AppColors.textLightPrimary,
+            ),
+          ),
+        ),
+      ],
     );
   }
 }

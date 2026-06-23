@@ -151,7 +151,7 @@ class _LearningScreenState extends State<LearningScreen> {
                 leading: Container(
                   padding: const EdgeInsets.all(8),
                   decoration: BoxDecoration(
-                    color: AppColors.tealPrimary.withOpacity(0.1),
+                    color: AppColors.tealPrimary.withValues(alpha: 0.1),
                     borderRadius: BorderRadius.circular(8),
                   ),
                   child: Icon(topic.icon, color: AppColors.tealPrimary, size: 24),

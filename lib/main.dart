@@ -21,6 +21,7 @@ void main() async {
 class SigapApp extends StatefulWidget {
   const SigapApp({super.key});
 
+  // ignore: library_private_types_in_public_api
   static _SigapAppState? of(BuildContext context) =>
       context.findAncestorStateOfType<_SigapAppState>();
 
@@ -86,7 +87,7 @@ class _SigapAppState extends State<SigapApp> {
       darkTheme: AppTheme.darkTheme,
       themeMode: _themeMode,
       locale: _locale,
-      localizationsDelegates: [
+      localizationsDelegates: const [
         AppLocalizations.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,

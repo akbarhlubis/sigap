@@ -94,7 +94,7 @@ class _FlowScreenState extends State<FlowScreen> with SingleTickerProviderStateM
             Container(
               padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 2),
               decoration: BoxDecoration(
-                color: sevColor.withOpacity(0.15),
+                color: sevColor.withValues(alpha: 0.15),
                 borderRadius: BorderRadius.circular(4),
               ),
               child: Text(
@@ -152,7 +152,7 @@ class _FlowScreenState extends State<FlowScreen> with SingleTickerProviderStateM
                           Container(
                             height: 200,
                             decoration: BoxDecoration(
-                              color: isDark ? AppColors.cardDark : AppColors.tealLight.withOpacity(0.3),
+                              color: isDark ? AppColors.cardDark : AppColors.tealLight.withValues(alpha: 0.3),
                               borderRadius: BorderRadius.circular(24),
                               border: Border.all(
                                 color: isDark ? AppColors.borderDark : AppColors.borderLight,
@@ -304,7 +304,7 @@ class FlowIllustrationPainter extends CustomPainter {
 
     final accentColor = isDark ? Colors.white : AppColors.textLightPrimary;
     final gridPaint = Paint()
-      ..color = (isDark ? AppColors.borderDark : AppColors.borderLight).withOpacity(0.3)
+      ..color = (isDark ? AppColors.borderDark : AppColors.borderLight).withValues(alpha: 0.3)
       ..strokeWidth = 1.0;
 
     // Draw reference grids for background visual aesthetics
@@ -373,7 +373,7 @@ class FlowIllustrationPainter extends CustomPainter {
         canvas.drawOval(Rect.fromCenter(center: Offset(cx, cy + 10), width: 140, height: 70), paint);
 
         // Target spot (Heart/Sternum)
-        fillPaint.color = primaryColor.withOpacity(0.3);
+        fillPaint.color = primaryColor.withValues(alpha: 0.3);
         canvas.drawCircle(Offset(cx, cy + 10), 20 + (animationValue * 10), fillPaint);
         paint.color = primaryColor;
         paint.strokeWidth = 4;

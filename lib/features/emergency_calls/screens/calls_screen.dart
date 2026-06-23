@@ -193,7 +193,7 @@ class _CallsScreenState extends State<CallsScreen> {
                           Text(
                             _selectedCountry == 'ID' 
                                 ? l10n.sosButton 
-                                : "CALL EMERGENCY " + (_selectedCountry == 'UK' ? '999' : '911'),
+                                : "CALL EMERGENCY ${_selectedCountry == 'UK' ? '999' : '911'}",
                             style: const TextStyle(
                               color: Colors.white,
                               fontSize: 24,
@@ -206,7 +206,7 @@ class _CallsScreenState extends State<CallsScreen> {
                           Text(
                             l10n.tapToCall,
                             style: TextStyle(
-                              color: Colors.white.withOpacity(0.85),
+                              color: Colors.white.withValues(alpha: 0.85),
                               fontSize: 13,
                               fontWeight: FontWeight.w500,
                             ),
@@ -244,7 +244,7 @@ class _CallsScreenState extends State<CallsScreen> {
                               Container(
                                 padding: const EdgeInsets.all(10),
                                 decoration: BoxDecoration(
-                                  color: contact.color.withOpacity(0.1),
+                                  color: contact.color.withValues(alpha: 0.1),
                                   shape: BoxShape.circle,
                                 ),
                                 child: Icon(

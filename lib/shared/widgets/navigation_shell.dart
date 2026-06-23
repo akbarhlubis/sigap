@@ -50,7 +50,7 @@ class _NavigationShellState extends State<NavigationShell> {
             });
           },
           backgroundColor: isDark ? AppColors.bgDark : Colors.white,
-          indicatorColor: AppColors.tealPrimary.withOpacity(0.15),
+          indicatorColor: AppColors.tealPrimary.withValues(alpha: 0.15),
           destinations: [
             NavigationDestination(
               icon: const Icon(Icons.home_outlined),

@@ -70,7 +70,7 @@ class _DisclaimerGateState extends State<DisclaimerGate> {
                 width: 100,
                 height: 100,
                 decoration: BoxDecoration(
-                  color: AppColors.severityCritical.withOpacity(0.1),
+                  color: AppColors.severityCritical.withValues(alpha: 0.1),
                   shape: BoxShape.circle,
                 ),
                 child: const Icon(
@@ -123,7 +123,7 @@ class _DisclaimerGateState extends State<DisclaimerGate> {
               // Emergency Warning Subtext
               Text(
                 l10n.tapToCall,
-                style: TextStyle(
+                style: const TextStyle(
                   color: AppColors.severityCritical,
                   fontSize: 13,
                   fontWeight: FontWeight.bold,

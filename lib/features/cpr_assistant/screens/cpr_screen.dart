@@ -145,7 +145,7 @@ class _CprScreenState extends State<CprScreen> with SingleTickerProviderStateMix
               // Info Card
               Card(
                 elevation: 0,
-                color: isDark ? AppColors.cardDark : AppColors.tealLight.withOpacity(0.4),
+                color: isDark ? AppColors.cardDark : AppColors.tealLight.withValues(alpha: 0.4),
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(16),
                   side: BorderSide(
@@ -188,7 +188,7 @@ class _CprScreenState extends State<CprScreen> with SingleTickerProviderStateMix
                           : (isDark ? AppColors.cardDark : Colors.white),
                       border: Border.all(
                         color: _isRunning
-                            ? Colors.white.withOpacity(0.8)
+                            ? Colors.white.withValues(alpha: 0.8)
                             : AppColors.tealPrimary,
                         width: 8,
                       ),
@@ -197,7 +197,7 @@ class _CprScreenState extends State<CprScreen> with SingleTickerProviderStateMix
                           color: (_isRunning
                                   ? (isCompressing ? AppColors.severityCritical : AppColors.tealPrimary)
                                   : AppColors.tealPrimary)
-                              .withOpacity(_isRunning ? 0.4 : 0.1),
+                              .withValues(alpha: _isRunning ? 0.4 : 0.1),
                           blurRadius: 20,
                           spreadRadius: _isRunning ? 10 : 2,
                         ),
@@ -326,7 +326,7 @@ class _CprScreenState extends State<CprScreen> with SingleTickerProviderStateMix
                       _audioEnabled = value;
                     });
                   },
-                  activeColor: AppColors.tealPrimary,
+                  activeThumbColor: AppColors.tealPrimary,
                   secondary: Icon(
                     _audioEnabled ? Icons.volume_up_rounded : Icons.volume_off_rounded,
                     color: AppColors.tealPrimary,

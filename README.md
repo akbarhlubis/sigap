@@ -105,6 +105,33 @@ Since Android Emulator or Developer Mode symlinks might require administrative a
 
 ## 🔮 Future Roadmap (Non-MVP)
 - **Offline Hospital Locator**: Search and navigate to nearby ER stations without an internet connection using cached coordinates.
-- **Mesh Network SOS**: Utilize Bluetooth Mesh or Wi-Fi Direct to broadcast local distress beacon alerts when cellular grids fail.
+- **Mesh Network SOS (BLE Mesh)**: Broadcast distress beacon alerts locally when cellular grids fail, using native platform bridges.
 - **Voice-Guided Resuscitation**: Text-to-speech integration to read step-by-step actions aloud during rescue maneuvers.
 - **Symptom Triage AI**: Offline lightweight classification model to suggest potential matching categories based on user inputs.
+
+---
+
+## 🔗 Key References & Sources
+
+To ensure maximum safety, technical compliance, and reliability, **SIGAP** references the following sources:
+
+### 🚑 Emergency & Medical Guidelines
+- **First Aid Guidelines**: Based on the [American Heart Association (AHA) CPR & ECC Guidelines](https://eccguidelines.heart.org/) and the [International Federation of Red Cross (IFRC) First Aid Reference](https://www.referencecentrefirstaid.org/).
+- **Kemenkes RI**: Localized emergency procedures aligned with guidelines from the [Kementerian Kesehatan Republik Indonesia (Kemenkes)](https://sehatnegeriku.kemkes.go.id/).
+
+### 📶 Bluetooth Mesh Research & Offline P2P
+For our offline mesh roadmap, we studied the open-source BLE mesh implementation by **PermissionlessTech**:
+- **iOS/macOS Swift Implementation**: [permissionlesstech/bitchat](https://github.com/permissionlesstech/bitchat) - Native `CoreBluetooth` mesh with multi-hop flood routing, Noise XX handshake encryption, and MTU fragmentation.
+- **Android Kotlin Implementation**: [permissionlesstech/bitchat-android](https://github.com/permissionlesstech/bitchat-android) - Native Kotlin BLE stack utilizing Nordic Semiconductor's `Android-BLE-Library` for robust background mesh services.
+
+### 💙 Flutter & Material 3 Best Practices
+- **Flutter Internationalization (l10n)**: Follows the official [Flutter Localization Guide](https://docs.flutter.dev/accessibility-and-localization/internationalization) utilizing native ARB catalog generation.
+- **Material 3 Specifications**: High-contrast layout principles based on [Material 3 Accessibility Specs](https://m3.material.io/).
+- **Flutter Performance Guide**: Guidelines followed to optimize painter redraws during CPR visuals [Flutter Performance Best Practices](https://docs.flutter.dev/perf/best-practices).
+
+---
+
+## ❤️ Acknowledgments & Appreciation
+- **PermissionlessTech (BitChat Contributors)**: Deep appreciation to the developers of BitChat for open-sourcing their dual-transport mesh architecture. Their native CoreBluetooth and Nordic BLE implementations provided critical insights for our offline mesh engineering path.
+- **Medical Professionals & First Responders**: Sincere gratitude to all doctors, nurses, and emergency dispatchers who dedicate their lives to emergency response.
+
